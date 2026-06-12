@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multifinance IT Talent Incubator Infographic</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #2563eb;
+            --dev-color: #059669;
+            --qa-color: #db2777;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .canvas-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+        .header p {
+            color: #94a3b8;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .highlight-box {
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            display: inline-block;
+        }
+        .highlight-box h3 {
+            margin: 0 0 10px 0;
+            color: #60a5fa;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 50px 40px;
+            border-bottom: 2px dashed #e2e8f0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: var(--secondary);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* FASE 1: FOUNDATION */
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .module-card {
+            background: #f1f5f9;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .module-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary);
+            font-size: 1.1em;
+        }
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* FASE 2: STREAMS */
+        .streams-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .stream-column {
+            flex: 1;
+            min-width: 350px;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            border-top: 6px solid;
+        }
+        .dev-stream {
+            border-color: var(--dev-color);
+        }
+        .qa-stream {
+            border-color: var(--qa-color);
+        }
+        .stream-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .stream-header h2 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .dev-stream h2 { color: var(--dev-color); }
+        .qa-stream h2 { color: var(--qa-color); }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 2px solid #cbd5e1;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-light);
+        }
+        .dev-stream .timeline-item::before { background: var(--dev-color); }
+        .qa-stream .timeline-item::before { background: var(--qa-color); }
+        
+        .timeline-item h5 { margin: 0 0 5px 0; font-size: 1.1em; }
+        .timeline-item span { font-weight: bold; font-size: 0.85em; }
+
+        /* FASE 3: SIMULATION */
+        .simulation-container {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+        .sim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .sim-day {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .sim-day strong {
+            display: block;
+            color: #60a5fa;
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #e2e8f0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="canvas-container">
+    
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🚀 MULTIFINANCE IT TALENT INCUBATOR</h1>
+        <p>From <strong>"Ready to Learn"</strong> (Lulusan Bootcamp) to <strong>"Ready to Deliver"</strong> (Elite Talent)</p>
+        
+        <div class="highlight-box">
+            <h3>🎯 Tujuan Utama</h3>
+            <p style="color: #e2e8f0; font-size: 1em; margin: 0;">Mencetak 7-10 orang talenta elit yang benar-benar siap masuk ke project multifinance nyata dengan memadukan <strong>Pemahaman Bisnis</strong> dan <strong>Keahlian Teknis Spesifik</strong>.</p>
+        </div>
+    </div>
+
+    <!-- FASE 1 -->
+    <div class="section">
+        <h2 class="section-title">Fase 1: Matrikulasi & Business Foundation</h2>
+        <p style="text-align: center; margin-bottom: 40px;">Membekali peserta dengan pemahaman SDLC, SQL, API, dan konteks bisnis end-to-end multifinance sebelum masuk ke koding spesifik. <em>(Durasi: ~2.5 Minggu)</em></p>
+        
+        <div class="foundation-grid">
+            <div class="module-card">
+                <div class="badge">Modul 1-2 | 1.5 Hari</div>
+                <h4>Industri & Loan Lifecycle</h4>
+                <p>Overview multifinance, perbedaan produk, Revenue Model, dan alur end-to-end: <em>Lead → Approval → Disbursement → Collection.</em></p>
+            </div>
+            <div class="module-card">
+                <div class="badge">Modul 3-4 | 1.5 Hari</div>
+                <h4>Terminologi & Core System</h4>
+                <p>Memahami OTR, DP, Tenor, NPL, DPD. Pengenalan LOS, Credit Scoring, Disbursement System, hingga Recovery.</p>
+            </div>
+            <div class="module-card">
+                <div class="badge">Modul 5-6 | 1.5 Hari</div>
+                <h4>Financial Calculation & Impact Analysis</h4>
+                <p>Logika bunga flat, angsuran, bucket collection. Studi kasus analisis dampak perubahan DP dari 20% ke 15% pada sistem.</p>
+            </div>
+            <div class="module-card">
+                <div class="badge">Modul 7-9 | 1.5-2 Hari</div>
+                <h4>Data, Risk & Simulation</h4>
+                <p>SQL reporting (Approval, NPL), Fraud awareness, dan Mini-simulasi penambahan <em>Grace Period</em> pada sistem.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="section">
+        <h2 class="section-title">Fase 2: Stream Spesialisasi (3 Minggu)</h2>
+        
+        <div class="streams-container">
+            <!-- DEV STREAM -->
+            <div class="stream-column dev-stream">
+                <div class="stream-header">
+                    <h2>💻 DEVELOPER STREAM</h2>
+                    <p>Target: Junior Dev, App Support, Enhancement</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h5>1. Enterprise Architecture</h5>
+                    <span style="color: var(--dev-color);">2 Hari</span> | Layered Arch, Repository Pattern, SOLID
+                </div>
+                <div class="timeline-item">
+                    <h5>2. .NET Framework Fundamentals</h5>
+                    <span style="color: var(--dev-color);">3 Hari</span> | ASP.NET Core, MVC, API, Entity Framework
+                </div>
+                <div class="timeline-item">
+                    <h5>3. Database for Enterprise</h5>
+                    <span style="color: var(--dev-color);">3 Hari</span> | SP, View, Trigger, Transaksi (Approval Case), ERD
+                </div>
+                <div class="timeline-item">
+                    <h5>4. API Integration & Debugging</h5>
+                    <span style="color: var(--dev-color);">4 Hari</span> | REST, JWT, Retry, Root Cause Analysis, Log Tracing
+                </div>
+                <div class="timeline-item">
+                    <h5>5. Secure Coding & Mini Project</h5>
+                    <span style="color: var(--dev-color);">3 Hari</span> | SQL Injection, XSS, Build Loan Application API
+                </div>
+            </div>
+
+            <!-- QA STREAM -->
+            <div class="stream-column qa-stream">
+                <div class="stream-header">
+                    <h2>🧪 QA / TESTER STREAM</h2>
+                    <p>Target: Manual Tester, UAT Tester, Jr. Automation</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h5>1. Software Testing Foundation</h5>
+                    <span style="color: var(--qa-color);">2 Hari</span> | SDLC, STLC, Defect Lifecycle
+                </div>
+                <div class="timeline-item">
+                    <h5>2. Test Design & Case Writing</h5>
+                    <span style="color: var(--qa-color);">4 Hari</span> | Boundary Value, Decision Table, Pos/Neg Scenario
+                </div>
+                <div class="timeline-item">
+                    <h5>3. UAT & API Testing</h5>
+                    <span style="color: var(--qa-color);">4 Hari</span> | Requirement Review, Postman, Assertion
+                </div>
+                <div class="timeline-item">
+                    <h5>4. SQL for Tester & Bug Mgt</h5>
+                    <span style="color: var(--qa-color);">2 Hari</span> | Data Validation, Root Cause, Defect Report
+                </div>
+                <div class="timeline-item">
+                    <h5>5. Automation & Mini Project</h5>
+                    <span style="color: var(--qa-color);">6 Hari</span> | Playwright (Locator, Action), POM, Test Loan App
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="section">
+        <h2 class="section-title">Fase 3: The Ultimate Differentiator</h2>
+        
+        <div class="simulation-container">
+            <h3 style="margin-top: 0; font-size: 1.8em;">🔄 Multifinance Project Simulation (1 Minggu)</h3>
+            <p>Penggabungan Developer dan QA untuk menjalankan miniatur siklus proyek sesungguhnya.</p>
+            
+            <div class="sim-grid">
+                <div class="sim-day"><strong>Hari 1</strong> Requirement Given</div>
+                <div class="sim-day"><strong>Hari 2</strong> Developer Coding</div>
+                <div class="sim-day"><strong>Hari 3</strong> QA Create Test Case</div>
+                <div class="sim-day"><strong>Hari 4</strong> UAT Execution</div>
+                <div class="sim-day"><strong>Hari 5</strong> Bug Fixing (Dev)</div>
+                <div class="sim-day"><strong>Hari 6</strong> Retest (QA)</div>
+                <div class="sim-day"><strong>Hari 7</strong> Production Deploy</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        "Lulusan tidak hanya menguasai teknologi, tetapi mengalami miniatur siklus proyek multifinance yang sesungguhnya."
+    </div>
+
+</div>
+
+</body>
+</html>
