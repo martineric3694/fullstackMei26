@@ -2,6 +2,7 @@ const userModel = require("../models/userModel");
 
 const path = require("path");
 const renderView = require("../util/view");
+const parameterExtract = require("../util/parameter");
 
 function home(req,res){
     res.writeHead(200,{"Content-Type":"text/html"});
@@ -80,9 +81,21 @@ function submitAdd(req,res){
     
 }
 
+function parameter(req,res,id){
+    res.writeHead(200,{"Content-Type":"text/html"});
+    res.end("ID = "+id);
+}
+
+function queryString(req,res,queryString){
+    res.writeHead(200,{"Content-Type":"text/html"});
+    res.end("Query String = "+queryString);
+}
+
 module.exports= {
     home,
     getUser,
     addForm,
-    submitAdd
+    submitAdd,
+    parameter,
+    queryString,
 };
