@@ -1,8 +1,40 @@
 const userController = require("../controllers/userController");
 const path = require("path");
+const url = require("url");
 const renderView = require("../util/view");
 
 function handleRoute(req,res){
+
+    if(req.url.startsWith("/data")){
+        console.log("====masuk ke /user"+req.url);
+        const parseUrl = url.parse(req.url,true);
+        
+        const pathname = parseUrl.pathname;
+    
+        // kata user bisa diganti dengan path lainnya
+        const userPattern =
+            /^\/data\/(\d+)$/;
+    
+        const match =
+            pathname.match(userPattern);
+    
+        console.log(match+"========");
+    
+        if(match){
+            const id = match[1];
+    
+            return userController.parameter(req,res,id);
+        }
+    
+        if (parseUrl.query.id !== null ) {
+            
+            return userController.queryString(req,res,parseUrl.query.id);
+        }
+    
+        res.writeHead(404);
+        res.end("Route tidak ditemukan");
+    }
+
     if(req.url==="/users"){
         console.log("User")
         userController.home(req,res);
@@ -18,41 +50,16 @@ function handleRoute(req,res){
         });
 
         res.end(html);
+        return true;
     }else if(req.url === "/add" && req.method === "GET"){
         userController.addForm(req,res);
+        return true;
     }else if(req.url==="/add"&& req.method==="POST"){
         userController.submitAdd(req,res);
     } 
     
-    if(req.url==="/user"){
-        console.log("====masuk ke /user"+req.url);
-        // const parseUrl = url.parse(req.url,true);
-        
-        // const pathname = parseUrl.pathname;
+    return false;
     
-        // // kata user bisa diganti dengan path lainnya
-        // const userPattern =
-        //     /^\/user\/(\d+)$/;
-    
-        // const match =
-        //     pathname.match(userPattern);
-    
-        // console.log(match+"========");
-    
-        // if(match){
-        //     const id = match[1];
-    
-        //     return userController.parameter(req,res,id);
-        // }
-    
-        // if (pathname === "/user") {
-    
-        //     return userController.queryString(req,res,parseUrl.query);
-        // }
-    
-        // res.writeHead(404);
-        // res.end("Route tidak ditemukan");
-    }
 }
 
 module.exports = {handleRoute};
