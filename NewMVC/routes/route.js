@@ -31,6 +31,7 @@ function handleRoute(req,res){
         return true;
     }
 
+    // /barang/SKU-001
     if(req.url==="/home"){
         const filePath = path.join(__dirname,"../views/home.html");
         const html = renderView(filePath);
