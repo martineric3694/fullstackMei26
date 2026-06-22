@@ -1,0 +1,8 @@
+{
+  "name": "10-post-request",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

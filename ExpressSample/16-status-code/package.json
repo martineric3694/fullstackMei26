@@ -1,0 +1,8 @@
+{
+  "name": "16-status-code",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

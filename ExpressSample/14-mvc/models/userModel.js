@@ -1,0 +1,1 @@
+exports.getUsers=()=>[{id:1,nama:'Martin'}];
