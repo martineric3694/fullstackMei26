@@ -1,0 +1,11 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; }
+nav { background: #333; padding: 10px; margin-bottom: 20px; }
+nav a { color: #fff; text-decoration: none; }
+h1 { margin-bottom: 16px; }
+ul { list-style: none; }
+li { padding: 8px 0; border-bottom: 1px solid #eee; display: flex; gap: 8px; align-items: center; }
+a { color: #0070f3; }
+.role { font-size: 0.8em; background: #eef; padding: 2px 8px; border-radius: 4px; }
+.card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; }
+footer { margin-top: 40px; text-align: center; color: #999; font-size: 0.85em; }
