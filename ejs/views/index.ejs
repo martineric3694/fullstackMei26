@@ -11,4 +11,17 @@
   <% }) %>
 </ul>
 
+<ul>
+  <% for(let i=0;i<5;i++) { %>
+    <% if(i%2===0) {%>
+    <li>
+      <a href="/user/<%= i %>">Data ke-<%= i %></a>
+    </li>
+    <% }else { %>
+    <li>
+      <a href="/user/<%= i %>">Bukan Data ke-<%= i %></a>
+    </li>
+  <% }} %>
+</ul>
+
 <%- include('partials/footer') %>
