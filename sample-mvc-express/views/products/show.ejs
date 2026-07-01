@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<div class="page-header">
+  <h1>🔍 Detail Produk</h1>
+  <a href="/products" class="btn btn-outline">← Kembali</a>
+</div>
+
+<div class="card detail-card">
+  <div class="detail-grid">
+    <div class="detail-item">
+      <span class="label">ID</span>
+      <span class="value">#<%= product.id %></span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Nama Produk</span>
+      <span class="value"><strong><%= product.name %></strong></span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Kategori</span>
+      <span class="value"><span class="badge"><%= product.category %></span></span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Harga</span>
+      <span class="value text-primary">Rp <%= product.price.toLocaleString('id-ID') %></span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Stok</span>
+      <span class="value <%= product.stock < 5 ? 'text-danger' : 'text-success' %>">
+        <%= product.stock %> unit
+        <% if (product.stock < 5) { %>
+          <small>(Stok menipis!)</small>
+        <% } %>
+      </span>
+    </div>
+  </div>
+
+  <div class="card-actions">
+    <a href="/products/<%= product.id %>/edit" class="btn btn-warning">✏️ Edit Produk</a>
+    <form action="/products/<%= product.id %>?_method=DELETE" method="POST" class="inline-form"
+          onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
+      <button type="submit" class="btn btn-danger">🗑️ Hapus Produk</button>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

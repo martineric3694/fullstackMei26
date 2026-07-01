@@ -1,0 +1,91 @@
+<%- include('../partials/header') %>
+
+<div class="page-header">
+  <h1><%= product ? '✏️ Edit Produk' : '➕ Tambah Produk' %></h1>
+  <a href="/products" class="btn btn-outline">← Kembali</a>
+</div>
+
+<%# Tampilkan error validasi %>
+<% if (errors && errors.length > 0) { %>
+  <div class="alert alert-danger">
+    <strong>Terdapat kesalahan:</strong>
+    <ul>
+      <% errors.forEach(err => { %>
+        <li><%= err %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<div class="card form-card">
+  <form action="<%= action %>" method="POST">
+    <%# method-override untuk PUT %>
+    <% if (method === 'POST' && action.includes('_method=PUT')) { %>
+      <input type="hidden" name="_method" value="PUT" />
+    <% } %>
+
+    <div class="form-group">
+      <label for="name">Nama Produk <span class="required">*</span></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="input"
+        placeholder="Masukkan nama produk"
+        value="<%= product ? product.name : '' %>"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Kategori <span class="required">*</span></label>
+      <select id="category" name="category" class="input" required>
+        <option value="">-- Pilih Kategori --</option>
+        <% kategori.forEach(cat => { %>
+          <option value="<%= cat %>" <%= (product && product.category === cat) ? 'selected' : '' %>>
+            <%= cat %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="price">Harga (Rp) <span class="required">*</span></label>
+        <input
+          type="number"
+          id="price"
+          name="price"
+          class="input"
+          placeholder="Contoh: 150000"
+          min="0"
+          value="<%= product ? product.price : '' %>"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="stock">Stok <span class="required">*</span></label>
+        <input
+          type="number"
+          id="stock"
+          name="stock"
+          class="input"
+          placeholder="Contoh: 10"
+          min="0"
+          value="<%= product ? product.stock : '' %>"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">
+        <%= product ? '💾 Simpan Perubahan' : '➕ Tambah Produk' %>
+      </button>
+      <a href="/products" class="btn btn-outline">Batal</a>
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>
