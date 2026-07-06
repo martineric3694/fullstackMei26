@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Bcrypt Authentication</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2em;
+    }
+    .user-info {
+      background: #f7fafc;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border: 1px solid #e2e8f0;
+    }
+    .info-row {
+      display: flex;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .info-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .info-label {
+      font-weight: bold;
+      color: #4a5568;
+      min-width: 140px;
+    }
+    .info-value {
+      color: #2d3748;
+    }
+    .welcome-msg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .btn {
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    .btn-logout {
+      background: #f56565;
+      color: white;
+    }
+    .btn-logout:hover {
+      background: #e53e3e;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245, 101, 101, 0.4);
+    }
+    .security-note {
+      background: #fff5f5;
+      border-left: 4px solid #f56565;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+      color: #742a2a;
+      font-size: 0.9em;
+    }
+    .security-note strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Dashboard</h1>
+    
+    <div class="welcome-msg">
+      Selamat datang, <%= user.username %>! 👋
+    </div>
+    
+    <div class="user-info">
+      <div class="info-row">
+        <span class="info-label">Username:</span>
+        <span class="info-value"><%= user.username %></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value"><%= user.email %></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Terdaftar sejak:</span>
+        <span class="info-value"><%= new Date(user.created_at).toLocaleDateString('id-ID', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }) %></span>
+      </div>
+    </div>
+    
+    <div class="security-note">
+      <strong>🔐 Keamanan Password</strong>
+      Password Anda disimpan dengan aman menggunakan bcrypt hashing dengan salt rounds 10. Password asli tidak pernah disimpan di database, hanya hash-nya saja.
+    </div>
+    
+    <div class="btn-group">
+      <a href="/" class="btn btn-primary">Home</a>
+      <a href="/logout" class="btn btn-logout">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
