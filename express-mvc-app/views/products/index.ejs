@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold mb-0">🛒 Daftar Produk</h2>
+    <a href="/products/create" class="btn btn-success">+ Tambah Produk</a>
+  </div>
+
+  <% if (products.length === 0) { %>
+    <div class="alert alert-info">
+      Belum ada produk. <a href="/products/create">Tambahkan sekarang</a>.
+    </div>
+  <% } else { %>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle bg-white shadow-sm rounded">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Nama Produk</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Pemilik</th>
+            <th>Ditambahkan</th>
+            <th class="text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach((p, i) => { %>
+            <tr>
+              <td class="text-muted small"><%= i + 1 %></td>
+              <td>
+                <strong><%= p.name %></strong>
+                <% if (p.description) { %>
+                  <br><small class="text-muted"><%= p.description.substring(0, 60) %><%= p.description.length > 60 ? '…' : '' %></small>
+                <% } %>
+              </td>
+              <td>Rp <%= Number(p.price).toLocaleString('id-ID') %></td>
+              <td>
+                <span class="badge <%= p.stock > 0 ? 'bg-success' : 'bg-danger' %>">
+                  <%= p.stock %>
+                </span>
+              </td>
+              <td><%= p.owner_name %></td>
+              <td class="small text-muted"><%= new Date(p.created_at).toLocaleDateString('id-ID') %></td>
+              <td class="text-center">
+                <a href="/products/<%= p.id %>/edit" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+                <form action="/products/<%= p.id %>?_method=DELETE" method="POST" class="d-inline"
+                  onsubmit="return confirm('Yakin hapus produk ini?')">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Hapus</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>
